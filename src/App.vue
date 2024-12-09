@@ -1,10 +1,20 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <NavBar/>
+  <main class="laman">
+    <RouterView/>
+  </main>
 </template>
+
+<script>
+import NavBar from './components/NavBar.vue'
+
+export default {
+  name: 'App',
+  components: {
+    NavBar
+  }
+}
+</script>
 
 <style>
 #app {
@@ -15,16 +25,30 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.laman{
+  margin-top:3rem ;
+} 
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+  margin: auto;
+}
+    
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+    
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+    
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

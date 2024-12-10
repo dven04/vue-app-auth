@@ -1,27 +1,32 @@
 <template>
-  <h1>No Drugs In Heaven</h1>
+  <main class="container">
+    <h1>Welcome, {{ getUser?.name || "User" }}!</h1>
+    <p>Email: {{ getUser?.email || "N/A" }}</p>
+  </main>
 </template>
 
+
 <script>
-  export default {
-    name: 'HomeView',
-  }
+import { mapGetters, mapActions } from "vuex";
+
+export default {
+  name: "HomeView",
+  computed: {
+    ...mapGetters(["getUser"]), // Get user details from Vuex
+  },
+  methods: {
+    ...mapActions(["fetchUser"]),
+  },
+  async mounted() {
+    await this.fetchUser(); // Ensure user data is fetched
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.container {
+  padding: 2rem;
+  text-align: center;
 }
 </style>

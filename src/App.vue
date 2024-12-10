@@ -1,18 +1,27 @@
 <template>
+  <div>
   <NavBar/>
   <main class="laman">
     <RouterView/>
   </main>
+  </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
+import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
   components: {
-    NavBar
-  }
+    NavBar,
+  },
+  methods: {
+    ...mapActions(['fetchUser']),
+  },
+  async mounted() {
+    await this.fetchUser();
+  },
 }
 </script>
 

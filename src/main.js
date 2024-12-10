@@ -13,8 +13,6 @@ import 'vue-toastification/dist/index.css';
 // Import Vue Toastification
 import Toast from 'vue-toastification';
 
-
-
 // Create the Vue app and use the necessary plugins
 createApp(App)
   .use(store)

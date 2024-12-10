@@ -16,5 +16,21 @@ export const api = {
     }
     return result;
   },
+
+  async get(url, data) {
+    const response = await fetch(`${BASE_URL}${url}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "Unknown error");
+    }
+    return result;
+  },
   // Add other methods like GET, PUT, DELETE as needed
 };

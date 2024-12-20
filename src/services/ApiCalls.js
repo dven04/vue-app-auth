@@ -1,6 +1,7 @@
 const BASE_URL = process.env.VUE_APP_BASE_URL;
 
 export const api = {
+  //POST
   async post(url, data) {
     const response = await fetch(`${BASE_URL}${url}`, {
       method: "POST",
@@ -17,6 +18,7 @@ export const api = {
     return result;
   },
 
+//GET
   async get(url, data) {
     const response = await fetch(`${BASE_URL}${url}`, {
       method: "GET",

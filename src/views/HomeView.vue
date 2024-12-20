@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <h1>Welcome, {{ getUser?.name || "User" }}!</h1>
+    <h1>Welcome, {{ getUser?.username || "User" }}!</h1>
     <p>Email: {{ getUser?.email || "N/A" }}</p>
   </main>
 </template>
